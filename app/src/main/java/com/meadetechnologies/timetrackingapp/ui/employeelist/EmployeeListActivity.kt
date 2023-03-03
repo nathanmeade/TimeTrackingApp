@@ -1,7 +1,8 @@
-package com.meadetechnologies.timetrackingapp
+package com.meadetechnologies.timetrackingapp.ui.employeelist
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.meadetechnologies.timetrackingapp.R
 
 class EmployeeListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

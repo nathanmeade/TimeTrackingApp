@@ -1,7 +1,8 @@
-package com.meadetechnologies.timetrackingapp
+package com.meadetechnologies.timetrackingapp.ui.shiftdetail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.meadetechnologies.timetrackingapp.R
 
 class ShiftDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

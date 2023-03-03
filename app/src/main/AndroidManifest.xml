@@ -12,25 +12,25 @@
         android:theme="@style/Theme.TimeTrackingApp"
         tools:targetApi="31">
         <activity
-            android:name=".ShiftDetailActivity"
+            android:name=".ui.shiftdetail.ShiftDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".EmployeeDetailActivity"
+            android:name=".ui.employeedetail.EmployeeDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".EmployeeListActivity"
+            android:name=".ui.employeelist.EmployeeListActivity"
             android:exported="false" />
         <activity
-            android:name=".OfflineTimeTrackingActivity"
+            android:name=".ui.offlinetimetracking.OfflineTimeTrackingActivity"
             android:exported="false" />
         <activity
-            android:name=".TimeTrackingActivity"
+            android:name=".ui.timetracking.TimeTrackingActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminLoginActivity"
+            android:name=".ui.adminlogin.AdminLoginActivity"
             android:exported="false" />
         <activity
-            android:name=".EmployeeLoginActivity"
+            android:name=".ui.employeelogin.EmployeeLoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
