@@ -51,7 +51,7 @@ class EmployeeLoginActivity : AppCompatActivity() {
     }
 
     fun login(view: View) {
-        timeTrackingDatabase.employeeDao().getEmployeeIdByUsernameAndPassword(usernameEditText.text.toString(), passwordEditText.text.toString()).observe(this, Observer {
+        timeTrackingDatabase.employeeDao().getEmployeeIdByUsernameAndPassword(usernameEditText.text.toString(), passwordEditText.text.toString()).observe(this, Observer { it ->
             if (it == null){
                 loginVerifiedTextView.text = "false"
             }
@@ -60,6 +60,7 @@ class EmployeeLoginActivity : AppCompatActivity() {
                     //loginVerified = true
                     loginVerifiedTextView.text = "true"
                     val loginIntent = Intent(this, TimeTrackingActivity::class.java)
+                    loginIntent.putExtra("id", it)
                     startActivity(loginIntent)
                 }
             }
