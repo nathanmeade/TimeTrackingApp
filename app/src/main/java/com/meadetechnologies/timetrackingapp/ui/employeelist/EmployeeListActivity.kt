@@ -3,12 +3,17 @@ package com.meadetechnologies.timetrackingapp.ui.employeelist
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.meadetechnologies.timetrackingapp.MyApiService
 import com.meadetechnologies.timetrackingapp.R
 import com.meadetechnologies.timetrackingapp.TimeTrackingDatabase
 import com.meadetechnologies.timetrackingapp.data.model.Employee
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,7 +28,7 @@ class EmployeeListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_employee_list)
 
         val employeeApi = MyApiService.employeeApi
-
+        timeTrackingDatabase = TimeTrackingDatabase.getDatabase(this)
 // Get all employees
         employeeApi.getEmployees().enqueue(object : Callback<List<Employee>> {
             override fun onResponse(call: Call<List<Employee>>, response: Response<List<Employee>>) {
@@ -32,6 +37,19 @@ class EmployeeListActivity : AppCompatActivity() {
                     Log.d("nathanTest", "response.isSuccessful")
                     Log.d("nathanTest", "response.isSuccessful, employees: $localEmployees")
                     employees = localEmployees ?: listOf(Employee(76, "blah", "blah", "name", ""))
+//                    employees = listOf(Employee(76, "blah", "blah", "name", ""))
+                    val myScope = CoroutineScope(Dispatchers.IO)
+                    myScope.launch {
+                        Log.d("nathanTest", "myScope.launch {")
+                        timeTrackingDatabase.employeeDao().clearEmployees()
+                        employees.forEach {
+                            timeTrackingDatabase.employeeDao().addEmployee(it)
+                        }
+                    }
+
+
+//                    val adapter = EmployeeAdapter(employees)
+//                    recyclerView.adapter = adapter
                     // Do something with the employees list
                 } else {
                     Log.d("nathanTest", "response but not successful")
@@ -51,17 +69,17 @@ class EmployeeListActivity : AppCompatActivity() {
             Employee(Math.random().toInt(), "Bob Johnson", "https://example.com/bob.jpg", "28", "")
         )
 
-        timeTrackingDatabase = TimeTrackingDatabase.getDatabase(this)
 
-//        timeTrackingDatabase.employeeDao().getAllEmployees().observe(this, Observer {
-//            Log.d("nathanTest", "Employees: $it")
-//            employees = it
-//            val adapter = EmployeeAdapter(employees)
-//            recyclerView.adapter = adapter
-//        })
+
+        timeTrackingDatabase.employeeDao().getAllEmployees().observe(this, Observer {
+            Log.d("nathanTest", "Employees: $it")
+            employees = it
+            val adapter = EmployeeAdapter(employees)
+            recyclerView.adapter = adapter
+        })
 
         recyclerView = findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
 
 
         val adapter = EmployeeAdapter(employees)
