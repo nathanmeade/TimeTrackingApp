@@ -21,13 +21,13 @@ object MyApiService {
     interface EmployeeApi {
 
         @GET("employees")
-        fun getEmployees(): Call<List<EmployeeDTO>>
+        fun getEmployees(): Call<List<Employee>>
 
         @POST("employees")
-        fun createEmployee(@Body employee: EmployeeDTO): Call<EmployeeDTO>
+        fun createEmployee(@Body employee: Employee): Call<Employee>
 
         @PUT("employees/{id}")
-        fun updateEmployee(@Path("id") id: Long, @Body employee: EmployeeDTO): Call<EmployeeDTO>
+        fun updateEmployee(@Path("id") id: Long, @Body employee: Employee): Call<Employee>
 
         @DELETE("employees/{id}")
         fun deleteEmployee(@Path("id") id: Long): Call<Void>

@@ -9,6 +9,6 @@ data class Employee(
     val id: Int,
     val username: String,
     val password: String,
-    val age: Int,
-    val position: String
+    val name: String,
+    val image: String?
 )

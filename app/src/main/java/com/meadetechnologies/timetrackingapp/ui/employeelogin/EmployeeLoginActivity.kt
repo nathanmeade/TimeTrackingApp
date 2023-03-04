@@ -33,7 +33,7 @@ class EmployeeLoginActivity : AppCompatActivity() {
 
         timeTrackingDatabase = TimeTrackingDatabase.getDatabase(this)
 //        val employee = Employee(Math.random().toInt(), "Nathan", "Meade", 29, "Android Developer")
-        val employee = Employee(Math.random().toInt(), "Nathan", "Meade", 29, "Android Developer")
+        val employee = Employee(Math.random().toInt(), "Nathan", "Meade", "29", "Android Developer")
 
         timeTrackingDatabase.employeeDao().getAllEmployees().observe(this, Observer {
             Log.d("nathanTest", "Employees: $it")
