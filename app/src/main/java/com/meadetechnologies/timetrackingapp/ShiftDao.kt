@@ -16,6 +16,9 @@ interface ShiftDao {
     @Delete
     suspend fun deleteShift(shift: Shift)
 
+    @Query("DELETE FROM shift_table")
+    fun clearShifts()
+
     @Query("SELECT * FROM shift_table ORDER BY id ASC")
     fun getAllShifts(): LiveData<List<Shift>>
 
