@@ -2,7 +2,6 @@ package com.meadetechnologies.timetrackingapp
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.meadetechnologies.timetrackingapp.data.model.Employee
 import com.meadetechnologies.timetrackingapp.data.model.Shift
 
 @Dao
@@ -24,5 +23,5 @@ interface ShiftDao {
     fun getShiftById(id: Int): LiveData<Shift>
 
     @Query("SELECT * FROM shift_table WHERE employeeId = :employeeId")
-    fun getShiftByEmployeeId(employeeId: Int): LiveData<Shift>
+    fun getShiftsByEmployeeId(employeeId: Int): LiveData<List<Shift>>
 }
