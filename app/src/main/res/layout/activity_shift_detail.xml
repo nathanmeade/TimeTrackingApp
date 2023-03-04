@@ -4,11 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.shiftdetail.ShiftDetailActivity">
+    tools:context=".ui.shiftdetail.ShiftDetailActivity"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/shiftInfoTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/updateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:onClick="update"/>
 
 </LinearLayout>
