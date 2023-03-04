@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey
 data class Employee(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val firstName: String,
-    val lastName: String,
+    val username: String,
+    val password: String,
     val age: Int,
     val position: String
 )

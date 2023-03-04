@@ -21,4 +21,7 @@ interface EmployeeDao {
 
     @Query("SELECT * FROM employee_table WHERE id = :id")
     fun getEmployeeById(id: Int): LiveData<Employee>
+
+    @Query("SELECT * FROM employee_table WHERE username = :username AND password = :password")
+    fun getEmployeeIdByUsernameAndPassword(username: String, password: String): LiveData<Employee>
 }

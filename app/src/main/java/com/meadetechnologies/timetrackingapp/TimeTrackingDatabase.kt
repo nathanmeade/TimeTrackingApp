@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.meadetechnologies.timetrackingapp.data.model.Employee
 
-@Database(entities = [Employee::class], version = 1)
+@Database(entities = [Employee::class], version = 2)
 abstract class TimeTrackingDatabase : RoomDatabase() {
 
     abstract fun employeeDao(): EmployeeDao
@@ -21,7 +21,8 @@ abstract class TimeTrackingDatabase : RoomDatabase() {
                     context.applicationContext,
                     TimeTrackingDatabase::class.java,
                     "time_tracking_database"
-                ).build()
+                ).fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 instance
             }
