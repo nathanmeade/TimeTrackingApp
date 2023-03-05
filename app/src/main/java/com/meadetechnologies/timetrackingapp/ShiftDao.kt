@@ -16,6 +16,9 @@ interface ShiftDao {
     @Delete
     suspend fun deleteShift(shift: Shift)
 
+    @Query("DELETE FROM shift_table WHERE id = :id")
+    fun deleteShiftById(id: Int)
+
     @Query("DELETE FROM shift_table")
     fun clearShifts()
 

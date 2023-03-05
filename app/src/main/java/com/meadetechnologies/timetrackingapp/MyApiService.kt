@@ -27,10 +27,10 @@ object MyApiService {
         fun createEmployee(@Body employee: Employee): Call<Employee>
 
         @PUT("employees/{id}")
-        fun updateEmployee(@Path("id") id: Long, @Body employee: Employee): Call<Employee>
+        fun updateEmployee(@Path("id") id: Int, @Body employee: Employee): Call<Employee>
 
         @DELETE("employees/{id}")
-        fun deleteEmployee(@Path("id") id: Long): Call<Void>
+        fun deleteEmployee(@Path("id") id: Int): Call<Void>
     }
 
     interface ShiftApi {
@@ -42,10 +42,10 @@ object MyApiService {
         fun createShift(@Body shift: Shift): Call<Shift>
 
         @PUT("shifts/{id}")
-        fun updateShift(@Path("id") id: Long, @Body shift: Shift): Call<Shift>
+        fun updateShift(@Path("id") id: Int, @Body shift: Shift): Call<Shift>
 
         @DELETE("shifts/{id}")
-        fun deleteShift(@Path("id") id: Long): Call<Void>
+        fun deleteShift(@Path("id") id: Int): Call<Void>
     }
 
     val employeeApi: EmployeeApi by lazy {
