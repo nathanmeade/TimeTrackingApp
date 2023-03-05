@@ -45,12 +45,12 @@ class EmployeeDetailActivity : AppCompatActivity() {
 //            shifts = it
 //            val adapter = ShiftAdapter(shifts)
 //            recyclerView.adapter = adapter
+////        })
+//        timeTrackingDatabase.shiftDao().getAllShifts().observe(this, Observer {
+//            shifts = it
+//            val adapter = ShiftAdapter(shifts)
+//            recyclerView.adapter = adapter
 //        })
-        timeTrackingDatabase.shiftDao().getAllShifts().observe(this, Observer {
-            shifts = it
-            val adapter = ShiftAdapter(shifts)
-            recyclerView.adapter = adapter
-        })
 //        timeTrackingDatabase.shiftDao().getShiftsByEmployeeId(employeeId).observe(this, Observer {
 //            Log.d("nathanTest", "shifts: $it")
 //        })
@@ -60,12 +60,19 @@ class EmployeeDetailActivity : AppCompatActivity() {
 
         val adapter = ShiftAdapter(shifts)
         recyclerView.adapter = adapter
-        timeTrackingDatabase.shiftDao().getAllShifts().observe(this, Observer {
+        timeTrackingDatabase.shiftDao().getShiftsByEmployeeId(employeeId).observe(this, Observer {
             Log.d("nathanTest", "shifts: $it")
             shifts = it
             val adapter = ShiftAdapter(shifts)
             recyclerView.adapter = adapter
         })
+
+//        timeTrackingDatabase.shiftDao().getAllShifts().observe(this, Observer {
+//            Log.d("nathanTest", "shifts: $it")
+//            shifts = it
+//            val adapter = ShiftAdapter(shifts)
+//            recyclerView.adapter = adapter
+//        })
 
 
     }
