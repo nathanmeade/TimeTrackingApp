@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.meadetechnologies.timetrackingapp.data.model.Employee
 import com.meadetechnologies.timetrackingapp.data.model.Shift
 
-@Database(entities = [Employee::class, Shift::class], version = 4)
+@Database(entities = [Employee::class, Shift::class], version = 5)
 abstract class TimeTrackingDatabase : RoomDatabase() {
 
     abstract fun employeeDao(): EmployeeDao

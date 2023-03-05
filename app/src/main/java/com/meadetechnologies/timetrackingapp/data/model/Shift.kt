@@ -10,4 +10,6 @@ data class Shift(
     val employeeId: Int,
     val startTime: String,
     val endTime: String,
+    val clockInPhotoLocation: String? = null,
+    val clockOutPhotoLocation: String? = null,
 )

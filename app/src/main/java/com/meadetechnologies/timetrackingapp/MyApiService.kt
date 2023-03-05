@@ -39,10 +39,10 @@ object MyApiService {
         fun getShifts(): Call<List<Shift>>
 
         @POST("shifts")
-        fun createShift(@Body shift: Shift): Call<Shift>
+        fun createShift(@Body shift: Shift): Call<Void>
 
         @PUT("shifts/{id}")
-        fun updateShift(@Path("id") id: Int, @Body shift: Shift): Call<Shift>
+        fun updateShift(@Path("id") id: Int, @Body shift: Shift): Call<Void>
 
         @DELETE("shifts/{id}")
         fun deleteShift(@Path("id") id: Int): Call<Void>
