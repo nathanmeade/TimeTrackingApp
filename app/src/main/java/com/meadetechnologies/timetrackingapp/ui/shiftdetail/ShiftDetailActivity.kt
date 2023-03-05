@@ -74,11 +74,27 @@ class ShiftDetailActivity : AppCompatActivity() {
     }
 
     fun update(view: View) {
-        val myScope = CoroutineScope(Dispatchers.IO)
-        myScope.launch {
-            timeTrackingDatabase.shiftDao().updateShift(Shift(shiftId, employeeId, Math.random().toString(), Math.random().toString()))
+//        val myScope = CoroutineScope(Dispatchers.IO)
+//        myScope.launch {
+//            timeTrackingDatabase.shiftDao().updateShift(Shift(shiftId, employeeId, Math.random().toString(), Math.random().toString()))
+//
+//        }
+        val shiftApi = MyApiService.shiftApi
+//        val employeeId = shiftEmployeeIdEditText.text.toString() as Int
+        val employeeId = shiftEmployeeIdEditText.text.toString().toInt()
 
-        }
+        val startTimee = shiftStartTimeEditText.text.toString()
+        val endTimee = shiftEndTimeEditText.text.toString()
+        shiftApi.updateShift(shiftId, Shift(shiftId, employeeId, startTimee, endTimee)).enqueue(object : Callback<Void> {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                Log.d("nathanTest", "shiftApi.deleteShift onResponse")
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                Log.d("nathanTest", "shiftApi.deleteShift onFailure")
+            }
+
+        })
     }
 
     fun delete(view: View) {
