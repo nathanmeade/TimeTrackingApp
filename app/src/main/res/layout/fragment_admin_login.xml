@@ -1,14 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.adminlogin.AdminLoginFragment">
+    tools:context=".ui.employeelogin.MainActivity">
 
-    <!-- TODO: Update blank fragment layout -->
+    <Button
+        android:id="@+id/employeeLoginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Employee Login"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="navigateToEmployeeLogin"/>
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin Login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/employeeLoginButton" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/usernameLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/usernameLabelTextView"
+        app:layout_constraintTop_toTopOf="@+id/usernameLabelTextView"/>
+
+    <TextView
+        android:id="@+id/passwordLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameLabelTextView"
+        android:layout_marginTop="32dp"/>
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/passwordLabelTextView"
+        app:layout_constraintTop_toTopOf="@+id/passwordLabelTextView"/>
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        app:layout_constraintTop_toBottomOf="@+id/passwordLabelTextView"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="login"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
