@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation.xml"
+    app:startDestination="@id/employeeLoginFragment">
+
+    <fragment
+        android:id="@+id/employeeLoginFragment"
+        android:name="com.meadetechnologies.timetrackingapp.ui.employeelogin.EmployeeLoginFragment"
+        android:label="EmployeeLoginFragment" >
+        <action
+            android:id="@+id/action_employeeLoginFragment_to_adminLoginFragment"
+            app:destination="@id/adminLoginFragment" />
+        <action
+            android:id="@+id/action_employeeLoginFragment_to_offlineTimeTrackingActivity"
+            app:destination="@id/offlineTimeTrackingActivity" />
+        <action
+            android:id="@+id/action_employeeLoginFragment_to_timeTrackingFragment"
+            app:destination="@id/timeTrackingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminLoginFragment"
+        android:name="com.meadetechnologies.timetrackingapp.ui.adminlogin.AdminLoginFragment"
+        android:label="AdminLoginFragment" >
+        <action
+            android:id="@+id/action_adminLoginFragment_to_employeeLoginFragment"
+            app:destination="@id/employeeLoginFragment" />
+        <action
+            android:id="@+id/action_adminLoginFragment_to_employeeListFragment"
+            app:destination="@id/employeeListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/employeeListFragment"
+        android:name="com.meadetechnologies.timetrackingapp.ui.employeelist.EmployeeListFragment"
+        android:label="EmployeeListFragment" >
+        <action
+            android:id="@+id/action_employeeListFragment_to_employeeDetailFragment"
+            app:destination="@id/employeeDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/employeeDetailFragment"
+        android:name="com.meadetechnologies.timetrackingapp.ui.employeedetail.EmployeeDetailFragment"
+        android:label="EmployeeDetailFragment" >
+        <action
+            android:id="@+id/action_employeeDetailFragment_to_shiftDetailFragment"
+            app:destination="@id/shiftDetailFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/offlineTimeTrackingActivity"
+        android:name="com.meadetechnologies.timetrackingapp.ui.offlinetimetracking.OfflineTimeTrackingActivity"
+        android:label="OfflineTimeTrackingActivity" />
+    <fragment
+        android:id="@+id/timeTrackingFragment"
+        android:name="com.meadetechnologies.timetrackingapp.ui.timetracking.TimeTrackingFragment"
+        android:label="TimeTrackingFragment" />
+    <fragment
+        android:id="@+id/shiftDetailFragment"
+        android:name="com.meadetechnologies.timetrackingapp.ui.shiftdetail.ShiftDetailFragment"
+        android:label="ShiftDetailFragment" />
+</navigation>
