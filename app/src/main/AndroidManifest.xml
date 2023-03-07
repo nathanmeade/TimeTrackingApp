@@ -34,7 +34,7 @@
             android:name=".ui.adminlogin.AdminLoginActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.employeelogin.EmployeeLoginActivity"
+            android:name=".ui.employeelogin.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

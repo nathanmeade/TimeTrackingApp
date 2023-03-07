@@ -6,8 +6,7 @@ import android.os.Bundle
 import android.view.View
 import com.meadetechnologies.timetrackingapp.R
 import com.meadetechnologies.timetrackingapp.ui.employeelist.EmployeeListActivity
-import com.meadetechnologies.timetrackingapp.ui.employeelogin.EmployeeLoginActivity
-import com.meadetechnologies.timetrackingapp.ui.timetracking.TimeTrackingActivity
+import com.meadetechnologies.timetrackingapp.ui.employeelogin.MainActivity
 
 class AdminLoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +20,7 @@ class AdminLoginActivity : AppCompatActivity() {
     }
 
     fun navigateToEmployeeLogin(view: View) {
-        val navigateToEmployeeLoginIntent = Intent(this, EmployeeLoginActivity::class.java)
+        val navigateToEmployeeLoginIntent = Intent(this, MainActivity::class.java)
         startActivity(navigateToEmployeeLoginIntent)
     }
 

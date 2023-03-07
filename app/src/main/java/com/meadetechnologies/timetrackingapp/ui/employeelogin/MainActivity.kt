@@ -14,9 +14,8 @@ import com.meadetechnologies.timetrackingapp.data.model.Employee
 import com.meadetechnologies.timetrackingapp.ui.adminlogin.AdminLoginActivity
 import com.meadetechnologies.timetrackingapp.ui.timetracking.TimeTrackingActivity
 import kotlinx.coroutines.*
-import kotlin.properties.Delegates
 
-class EmployeeLoginActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     lateinit var usernameEditText : EditText
     lateinit var passwordEditText : EditText
@@ -25,7 +24,7 @@ class EmployeeLoginActivity : AppCompatActivity() {
     var loginVerified = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_employee_login)
+        setContentView(R.layout.activity_main)
 
         usernameEditText = findViewById(R.id.usernameEditText)
         passwordEditText = findViewById(R.id.passwordEditText)
